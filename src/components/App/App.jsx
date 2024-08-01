@@ -17,7 +17,7 @@ export default function App() {
 
       <Options />
 
-      <Feedback />
+      <Feedback stats={values} />
     </>
   );
 }

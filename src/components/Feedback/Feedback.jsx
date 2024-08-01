@@ -1,19 +1,21 @@
 import css from "./Feedback.module.css";
 
-export default function Feedback() {
+export default function Feedback({stats: {
+    good,
+    neutral,
+    bad
+}}) {
   return (
     <div>
-
-        <button >Good</button>
-        <button >Neutral</button>
-        <button >Bad</button>
-        <button >Reset</button>
-
+      <ul>
+        <li>Good: {good}</li>
+        <li>Neutral: {neutral}</li>
+        <li>Bad: {bad}</li>
+      </ul>
     </div>
   );
 }
 
-
-{/* <button onClick={}></button> */}
-
-
+{
+  /* <button onClick={}></button> */
+}
