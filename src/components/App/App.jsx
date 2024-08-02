@@ -5,10 +5,11 @@ import Notification from "../Notification/Notification.jsx";
 import { useState, useEffect } from "react";
 
 export default function App() {
-
   const [values, setValues] = useState(() => {
     const savedValues = localStorage.getItem("valuesCount");
-    return savedValues ? JSON.parse(savedValues) : { good: 0, neutral: 0, bad: 0 };
+    return savedValues
+      ? JSON.parse(savedValues)
+      : { good: 0, neutral: 0, bad: 0 };
   });
 
   const totalFeedback = values.good + values.neutral + values.bad;
@@ -20,8 +21,6 @@ export default function App() {
     }));
   };
 
-  
-
   const reset = () => {
     setValues({
       good: 0,
@@ -30,7 +29,6 @@ export default function App() {
     });
   };
 
-  
   useEffect(() => {
     localStorage.setItem("valuesCount", JSON.stringify(values));
   }, [values]);

@@ -1,5 +1,3 @@
-// import css from "./Feedback.module.css";
-
 export default function Feedback({
   stats: { good, neutral, bad },
   totalFeedback,
