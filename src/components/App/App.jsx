@@ -1,4 +1,4 @@
-import Descrition from "../Descrition/Descrition.jsx";
+import Description from "../Description/Description.jsx";
 import Options from "../Options/Options.jsx";
 import Feedback from "../Feedback/Feedback.jsx";
 import Notification from "../Notification/Notification.jsx";
@@ -14,6 +14,8 @@ export default function App() {
   });
 
   const totalFeedback = values.good + values.neutral + values.bad;
+
+  const positiveFeedback = Math.round((values.good / totalFeedback) * 100);
 
   const updateFeedback = (feedbackType) => {
     setValues((prevFeedback) => ({
@@ -36,7 +38,7 @@ export default function App() {
 
   return (
     <div className={css.div}>
-      <Descrition />
+      <Description />
 
       <Options
         updateFeedback={updateFeedback}
@@ -44,9 +46,10 @@ export default function App() {
         reset={reset}
       />
 
-      {totalFeedback === 0 && <Notification />}
-      {totalFeedback > 0 && (
-        <Feedback stats={values} totalFeedback={totalFeedback} />
+      {totalFeedback === 0 ? (
+        <Notification />
+      ) : (
+        <Feedback stats={values} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback} />
       )}
     </div>
   );

@@ -2,7 +2,7 @@ import css from "./Feedback.module.css";
 
 export default function Feedback({
   stats: { good, neutral, bad },
-  totalFeedback,
+  totalFeedback, positiveFeedback
 }) {
   return (
     <div>
@@ -14,7 +14,7 @@ export default function Feedback({
           <>
             <li className={css.li}>Total: {totalFeedback}</li>
             <li className={css.li}>
-              Positive: {Math.round(((good + neutral) / totalFeedback) * 100)}%
+              Positive: {positiveFeedback}%
             </li>
           </>
         )}
