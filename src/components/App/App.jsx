@@ -3,6 +3,7 @@ import Options from "../Options/Options.jsx";
 import Feedback from "../Feedback/Feedback.jsx";
 import Notification from "../Notification/Notification.jsx";
 import { useState, useEffect } from "react";
+import css from "./App.module.css";
 
 export default function App() {
   const [values, setValues] = useState(() => {
@@ -34,7 +35,7 @@ export default function App() {
   }, [values]);
 
   return (
-    <>
+    <div className={css.div}>
       <Descrition />
 
       <Options
@@ -47,6 +48,6 @@ export default function App() {
       {totalFeedback > 0 && (
         <Feedback stats={values} totalFeedback={totalFeedback} />
       )}
-    </>
+    </div>
   );
 }
